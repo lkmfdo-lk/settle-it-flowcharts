@@ -1,0 +1,18 @@
+flowchart TD
+    A[Institution signs into portal] --> B[View dashboard]
+    B --> C[Open deal marketplace]
+    C --> D[Filter verified SME invoices]
+    D --> E[Review deal package]
+
+    E --> F[Check SME profile]
+    F --> G[Check buyer confirmation]
+    G --> H[Check risk score]
+    H --> I[Check bank statement analysis]
+    I --> J{Fund this invoice?}
+
+    J -->|Yes| K[Make financing offer]
+    K --> L[SME accepts offer]
+    L --> M[Release funding]
+    M --> N[Monitor repayment / settlement]
+
+    J -->|No| O[Reject or request more information]

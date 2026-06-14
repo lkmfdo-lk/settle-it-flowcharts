@@ -1,0 +1,13 @@
+flowchart TD
+    A[Buyer receives confirmation link] --> B[Open secure invoice page]
+    B --> C[View supplier details]
+    C --> D[View invoice + PO + delivery proof]
+    D --> E{Is invoice correct?}
+
+    E -->|Yes| F[Confirm invoice]
+    F --> G[Invoice marked as buyer confirmed]
+    G --> H[Sent to institutions]
+
+    E -->|No| I[Raise dispute]
+    I --> J[Add reason + evidence]
+    J --> K[Invoice paused for review]

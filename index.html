@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settle It Flowcharts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent-color: #3b82f6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: var(--text-color);
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .chart-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out backwards;
+        }
+
+        .chart-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .chart-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chart-card h2::before {
+            content: '';
+            display: block;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .mermaid {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            display: flex;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Staggered animation delays */
+        .chart-card:nth-child(1) { animation-delay: 0.1s; }
+        .chart-card:nth-child(2) { animation-delay: 0.2s; }
+        .chart-card:nth-child(3) { animation-delay: 0.3s; }
+        .chart-card:nth-child(4) { animation-delay: 0.4s; }
+        .chart-card:nth-child(5) { animation-delay: 0.5s; }
+        .chart-card:nth-child(6) { animation-delay: 0.6s; }
+        .chart-card:nth-child(7) { animation-delay: 0.7s; }
+        .chart-card:nth-child(8) { animation-delay: 0.8s; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Settle It User Flows</h1>
+        <p class="subtitle">Complete visual documentation of the Settle It platform workflows and processes.</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="chart-card">
+            <h2>01. Overall Platform Flow</h2>
+            <div class="mermaid">
+flowchart TD
+    A[SME needs working capital] --> B[SME signs up on Settle It]
+    B --> C[SME uploads invoice + documents]
+    C --> D[Settle It verifies SME, invoice, buyer, and documents]
+    D --> E[Buyer confirms invoice]
+    E --> F[Settle It creates risk score + deal package]
+    F --> G[Institution reviews deal]
+    G --> H[Institution sends financing offer]
+    H --> I[SME accepts offer]
+    I --> J[Institution releases funding]
+    J --> K[Buyer pays invoice later]
+    K --> L[Settlement completed]
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h2>02. SME User Flow</h2>
+            <div class="mermaid">
+flowchart TD
+    A[Open Settle It App] --> B[Sign up / Login]
+    B --> C[Choose SME Account]
+    C --> D[Complete Business Onboarding]
+    D --> E[Upload KYC Documents]
+    E --> F[Upload Bank Statements]
+    F --> G[SME Dashboard]
+
+    G --> H[Upload New Invoice]
+    H --> I[Add Invoice Details]
+    I --> J[Upload Invoice Documents]
+    J --> K[Add Buyer Contact]
+    K --> L[Submit Invoice]
+
+    L --> M[Invoice Verification]
+    M --> N[Buyer Confirmation]
+    N --> O[Risk Score Generated]
+    O --> P[Offers Available]
+    P --> Q[Compare Offers]
+    Q --> R[Accept Offer]
+    R --> S[Funding Released]
+    S --> T[Track Settlement]
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h2>03. Buyer Confirmation Flow</h2>
+            <div class="mermaid">
+flowchart TD
+    A[Buyer receives confirmation link] --> B[Open secure invoice page]
+    B --> C[View supplier details]
+    C --> D[View invoice + PO + delivery proof]
+    D --> E{Is invoice correct?}
+
+    E -->|Yes| F[Confirm invoice]
+    F --> G[Invoice marked as buyer confirmed]
+    G --> H[Sent to institutions]
+
+    E -->|No| I[Raise dispute]
+    I --> J[Add reason + evidence]
+    J --> K[Invoice paused for review]
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h2>04. Institution Lender Flow</h2>
+            <div class="mermaid">
+flowchart TD
+    A[Institution signs into portal] --> B[View dashboard]
+    B --> C[Open deal marketplace]
+    C --> D[Filter verified SME invoices]
+    D --> E[Review deal package]
+
+    E --> F[Check SME profile]
+    F --> G[Check buyer confirmation]
+    G --> H[Check risk score]
+    H --> I[Check bank statement analysis]
+    I --> J{Fund this invoice?}
+
+    J -->|Yes| K[Make financing offer]
+    K --> L[SME accepts offer]
+    L --> M[Release funding]
+    M --> N[Monitor repayment / settlement]
+
+    J -->|No| O[Reject or request more information]
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h2>05. Admin Compliance Flow</h2>
+            <div class="mermaid">
+flowchart TD
+    A[Admin logs in] --> B[Admin dashboard]
+    B --> C[Review SME onboarding]
+    C --> D[Check KYC / AML documents]
+    D --> E{Approved?}
+
+    E -->|Yes| F[SME verified]
+    E -->|No| G[Request more documents]
+
+    B --> H[Review uploaded invoices]
+    H --> I[Check duplicate invoice]
+    I --> J[Check document match]
+    J --> K[Check buyer confirmation]
+    K --> L{Invoice valid?}
+
+    L -->|Yes| M[Approve for risk scoring]
+    L -->|No| N[Reject / flag / dispute]
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h2>06. Institution SaaS Setup Flow</h2>
+            <div class="mermaid">
+flowchart TD
+    A[Institution requests demo] --> B[Settle It sales call]
+    B --> C[Institution agrees to onboard]
+    C --> D[Pay one-time setup fee]
+    D --> E[Dedicated environment created]
+    E --> F[Configure risk rules]
+    F --> G[Configure KYC / AML workflow]
+    G --> H[Connect APIs / data pipelines]
+    H --> I[Train institution team]
+    I --> J[Institution goes live]
+    J --> K[Monthly SaaS subscription starts]
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h2>07. SME Footer Flow</h2>
+            <div class="mermaid">
+flowchart TD
+    A[SME App] --> B[Home]
+    A --> C[Invoices]
+    A --> D[Offers]
+    A --> E[Profile]
+
+    B --> B1[Dashboard]
+    B --> B2[Cash Flow Snapshot]
+    B --> B3[Upload Invoice CTA]
+    B --> B4[Partner Institutions]
+
+    C --> C1[Invoice List]
+    C --> C2[Upload Invoice]
+    C --> C3[Invoice Status]
+    C --> C4[Buyer Confirmation Status]
+
+    D --> D1[Available Offers]
+    D --> D2[Compare Offers]
+    D --> D3[Accept Offer]
+    D --> D4[Track Funding]
+
+    E --> E1[Business Details]
+    E --> E2[KYC Documents]
+    E --> E3[Bank Details]
+    E --> E4[Consent Settings]
+    E --> E5[Free SME Access Plan]
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h2>08. Pitch Slide Simple Flow</h2>
+            <div class="mermaid">
+flowchart LR
+    A[SME Uploads Invoice] --> B[Settle It Verifies]
+    B --> C[Buyer Confirms]
+    C --> D[Institution Reviews & Offers]
+    D --> E[SME Gets Funded]
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Mermaid initialization -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'dark',
+            securityLevel: 'loose',
+            fontFamily: 'Inter'
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+flowchart TD
+    A[Admin logs in] --> B[Admin dashboard]
+    B --> C[Review SME onboarding]
+    C --> D[Check KYC / AML documents]
+    D --> E{Approved?}
+
+    E -->|Yes| F[SME verified]
+    E -->|No| G[Request more documents]
+
+    B --> H[Review uploaded invoices]
+    H --> I[Check duplicate invoice]
+    I --> J[Check document match]
+    J --> K[Check buyer confirmation]
+    K --> L{Invoice valid?}
+
+    L -->|Yes| M[Approve for risk scoring]
+    L -->|No| N[Reject / flag / dispute]
